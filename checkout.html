@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | Mayalu Crafts</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            Mayalu <span>Crafts</span>
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="contact.html">Contact</a>
+
+            <a href="cart.html">
+                Cart
+                <span class="cart-count">0</span>
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- TITLE -->
+
+<section class="section" style="padding-bottom:20px;">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h1>Checkout</h1>
+
+            <p>Complete your order below.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CHECKOUT -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="checkout-layout">
+
+    <!-- LEFT -->
+    <div class="checkout-card">
+
+        <div class="checkout-icon">📦</div>
+
+        <h2>Delivery Information</h2>
+
+        <br>
+
+       <form
+    id="checkout-form"
+    class="checkout-form"
+    action="https://api.web3forms.com/submit"
+    method="POST">
+
+    <input
+        type="hidden"
+        name="access_key"
+        value="3ee8e2d3-cfd8-4ffc-9cb8-7cc162f27c03">
+
+    <input
+        type="hidden"
+        name="subject"
+        value="🛒 New Mayalu Crafts Order">
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input
+    type="text"
+    name="Full Name"
+    required
+    placeholder="Your Full Name">
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+               <input
+    type="tel"
+    name="Phone Number"
+    required
+    placeholder="98XXXXXXXX">
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+               <textarea
+    name="Address"
+    rows="4"
+    required
+    placeholder="Delivery Address"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>City</label>
+               <input
+    type="text"
+    name="City"
+    required
+    placeholder="Kathmandu">
+            </div>
+
+            <div class="form-group">
+                <label>Order Notes</label>
+               <textarea
+    name="Order Notes"
+    rows="3"
+    placeholder="Optional notes"></textarea>
+            </div>
+
+            <h3>Payment Method</h3>
+
+            <br>
+
+            <!-- COD -->
+         <label class="payment-option">
+
+    <input
+        type="radio"
+        name="payment"
+        id="cod"
+        value="cod"
+        checked>
+
+    <img
+        src="images/cod.png"
+        alt="COD"
+        class="payment-logo">
+
+    <span>
+        Cash On Delivery
+    </span>
+
+</label>
+            <!-- ESEWA -->
+
+         <label class="payment-option">
+
+    <input
+        type="radio"
+        name="payment"
+        id="esewa"
+        value="esewa">
+
+    <img
+        src="images/esewa.png"
+        alt="eSewa"
+        class="payment-logo">
+
+    <span>
+        eSewa
+    </span>
+
+</label>
+
+<div id="esewa-qr" class="qr-card" style="display:none;">
+
+    <div class="payment-qr">
+
+        <img
+            src="images/esewa-qr.jpg"
+            alt="eSewa QR">
+
+        <p>
+            Scan To Pay With eSewa
+        </p>
+
+    </div>
+
+</div>
+            <!-- KHALTI -->
+             
+<label class="payment-option">
+
+    <input
+
+    type="radio"
+    name="payment"
+    id="khalti"
+    value="khalti">
+
+    <img
+        src="images/khalti.png"
+        alt="Khalti"
+        class="payment-logo">
+
+    <span>
+        Khalti
+    </span>
+
+</label><div id="khalti-qr" class="qr-card" style="display:none;">
+
+    <div class="payment-qr">
+
+        <img
+            src="images/khalti-qr.jpg"
+            alt="Khalti QR">
+
+        <p>
+            Scan To Pay With Khalti
+        </p>
+
+    </div>
+
+</div>
+<div class="form-group">
+
+    <label>
+        Payment Screenshot
+    </label>
+
+    <input
+        type="file"
+        accept="image/*">
+
+</div>
+
+<div class="form-group">
+
+    <label>
+        Transaction ID
+    </label>
+
+   <input
+    type="text"
+    name="Transaction ID"
+    placeholder="Enter transaction ID">
+</div>
+</form>
+    <!-- RIGHT -->
+    <div class="checkout-card checkout-summary">
+
+        <h2>Order Summary</h2>
+
+        <br>
+
+        <div class="summary-row">
+            <span>Products</span>
+            <span id="checkout-items-count">0</span>
+        </div>
+
+        <div class="summary-row">
+            <span>Delivery</span>
+            <span>Free</span>
+        </div>
+
+        <hr>
+
+        <div class="summary-row">
+            <strong>Total</strong>
+            <strong id="checkout-total">Rs 0</strong>
+        </div>
+
+        <button
+            type="submit"
+            form="checkout-form"
+            class="btn btn-primary place-order-btn">
+
+            Place Order
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <h3>Mayalu Crafts</h3>
+
+            <p>Handmade with love and care.</p>
+
+            <br>
+
+            <p>© 2026 Mayalu Crafts</p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+<script>
+
+let total = 0;
+
+cart.forEach(item => {
+    total += item.price * item.quantity;
+});
+
+document.getElementById("checkout-total").textContent =
+    `Rs ${total}`;
+
+document.getElementById("checkout-items-count").textContent =
+    cart.length;
+
+
+    
+
+</script>
+
+<script>
+
+const cod =
+    document.getElementById("cod");
+
+const esewa =
+    document.getElementById("esewa");
+
+const khalti =
+    document.getElementById("khalti");
+
+const esewaQR =
+    document.getElementById("esewa-qr");
+
+const khaltiQR =
+    document.getElementById("khalti-qr");
+
+function updatePaymentQR(){
+
+    esewaQR.style.display = "none";
+    khaltiQR.style.display = "none";
+
+    if(esewa.checked){
+
+        esewaQR.style.display = "block";
+    }
+
+    if(khalti.checked){
+
+        khaltiQR.style.display = "block";
+    }
+}
+
+cod.addEventListener(
+    "change",
+    updatePaymentQR
+);
+
+esewa.addEventListener(
+    "change",
+    updatePaymentQR
+);
+
+khalti.addEventListener(
+    "change",
+    updatePaymentQR
+);
+
+updatePaymentQR();
+
+</script>
+
+</body>
+</html>
