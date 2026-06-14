@@ -1,0 +1,214 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart | Mayalu Crafts</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            Mayalu <span>Crafts</span>
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="products.html">Products</a>
+
+            <a href="contact.html">Contact</a>
+
+            <a href="cart.html">
+                Cart
+                <span class="cart-count">0</span>
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h1>🛒 Shopping Cart</h1>
+
+            <p>
+                Review your handmade treasures before checkout.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="container">
+
+        <div id="cart-items"></div>
+
+        <!-- EMPTY CART -->
+
+        <div
+            id="empty-cart"
+            class="empty-cart"
+            style="display:none;">
+
+            <h1>🛒</h1>
+
+            <h2>Your Cart Is Empty</h2>
+
+            <p>
+                Discover beautiful handmade products
+                crafted with love.
+            </p>
+
+            <br>
+
+            <a
+                href="products.html"
+                class="btn btn-primary">
+
+                Shop Now
+
+            </a>
+
+        </div>
+
+        <!-- CART TOTAL -->
+
+        <div class="cart-total">
+
+            <div class="cart-summary">
+
+                <p>
+
+                    <span>Subtotal</span>
+
+                    <span id="cart-total">
+                        Rs 0
+                    </span>
+
+                </p>
+
+                <p>
+
+                    <span>Delivery</span>
+
+                    <span>
+                        Free
+                    </span>
+
+                </p>
+
+                <hr>
+
+                <h2>
+
+                    <span>Total</span>
+
+                    <span id="cart-final-total">
+                        Rs 0
+                    </span>
+
+                </h2>
+
+            </div>
+
+            <br>
+
+            <a
+                href="checkout.html"
+                class="btn btn-primary">
+
+                Proceed To Checkout
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <h3>
+                Mayalu Crafts
+            </h3>
+
+            <p>
+                Handmade with love and creativity.
+            </p>
+
+            <br>
+
+            <p>
+                © 2026 Mayalu Crafts.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+<script>
+
+    const emptyCart =
+        document.getElementById(
+            "empty-cart"
+        );
+
+    const cartBox =
+        document.getElementById(
+            "cart-items"
+        );
+
+    const totalBox =
+        document.querySelector(
+            ".cart-total"
+        );
+
+    if(cart.length === 0){
+
+        emptyCart.style.display =
+            "block";
+
+        totalBox.style.display =
+            "none";
+
+    }
+<div id="toast" class="toast"></div>
+</script>
+<div id="toast" class="toast"></div>
+</body>
+
+</html>
+```
