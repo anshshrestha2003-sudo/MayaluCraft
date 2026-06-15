@@ -258,9 +258,10 @@
     <div class="form-group">
         <label>Card Number</label>
         <input
-            type="text"
-            id="card-number"
-            placeholder="1234 5678 9012 3456">
+    type="text"
+    id="card-number"
+    maxlength="19"
+    placeholder="1234 5678 9012 3456">
     </div>
 
     <div class="form-group">
@@ -444,15 +445,68 @@ updatePaymentQR();
 
 </script>
 
-    <script>
+  <script>
+
+const cardNumber =
+    document.getElementById("card-number");
+
+if(cardNumber){
+
+    cardNumber.addEventListener(
+        "input",
+        function(){
+
+            let value =
+                this.value.replace(/\D/g,"");
+
+            value =
+                value.substring(0,16);
+
+            value =
+                value.replace(
+                    /(\d{4})(?=\d)/g,
+                    "$1 "
+                );
+
+            this.value = value;
+        }
+    );
+}
 
 function showOtpPopup(){
+
+    const cardNumberValue =
+        document.getElementById(
+            "card-number"
+        ).value.replace(/\s/g,"");
+
+    const cardName =
+        document.getElementById(
+            "card-name"
+        ).value.trim();
+
+    if(cardNumberValue.length !== 16){
+
+        alert(
+            "Card number must contain 16 digits."
+        );
+
+        return;
+    }
+
+    if(cardName === ""){
+
+        alert(
+            "Please enter card holder name."
+        );
+
+        return;
+    }
 
     document.getElementById(
         "otp-modal"
     ).style.display = "flex";
 }
-
 function closeOtp(){
 
     document.getElementById(
@@ -467,13 +521,17 @@ function verifyOtp(){
 
     if(otp.length === 6){
 
-        alert("Card verified successfully!");
+        alert(
+            "Card verified successfully!"
+        );
 
         closeOtp();
 
     }else{
 
-        alert("Please enter a valid 6-digit OTP");
+        alert(
+            "Please enter a valid OTP."
+        );
     }
 }
 
