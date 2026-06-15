@@ -1632,3 +1632,25 @@ footer{
     }
 
 }
+.otp-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.otp-content{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    width:350px;
+    text-align:center;
+}
+
+.otp-content input{
+    width:100%;
+    padding:12px;
+}
