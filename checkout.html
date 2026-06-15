@@ -407,56 +407,77 @@ document.getElementById("checkout-items-count").textContent =
 
 <script>
 
-const cod =
-    document.getElementById("cod");
+const cod = document.getElementById("cod");
+const esewa = document.getElementById("esewa");
+const khalti = document.getElementById("khalti");
+const card = document.getElementById("card");
 
-const esewa =
-    document.getElementById("esewa");
-
-const khalti =
-    document.getElementById("khalti");
-
-const esewaQR =
-    document.getElementById("esewa-qr");
-
-const khaltiQR =
-    document.getElementById("khalti-qr");
+const esewaQR = document.getElementById("esewa-qr");
+const khaltiQR = document.getElementById("khalti-qr");
+const cardForm = document.getElementById("card-form");
 
 function updatePaymentQR(){
 
     esewaQR.style.display = "none";
     khaltiQR.style.display = "none";
+    cardForm.style.display = "none";
 
     if(esewa.checked){
-
         esewaQR.style.display = "block";
     }
 
     if(khalti.checked){
-
         khaltiQR.style.display = "block";
+    }
+
+    if(card.checked){
+        cardForm.style.display = "block";
     }
 }
 
-cod.addEventListener(
-    "change",
-    updatePaymentQR
-);
-
-esewa.addEventListener(
-    "change",
-    updatePaymentQR
-);
-
-khalti.addEventListener(
-    "change",
-    updatePaymentQR
-);
+cod.addEventListener("change", updatePaymentQR);
+esewa.addEventListener("change", updatePaymentQR);
+khalti.addEventListener("change", updatePaymentQR);
+card.addEventListener("change", updatePaymentQR);
 
 updatePaymentQR();
 
 </script>
 
+    <script>
+
+function showOtpPopup(){
+
+    document.getElementById(
+        "otp-modal"
+    ).style.display = "flex";
+}
+
+function closeOtp(){
+
+    document.getElementById(
+        "otp-modal"
+    ).style.display = "none";
+}
+
+function verifyOtp(){
+
+    const otp =
+        document.getElementById("otp").value;
+
+    if(otp.length === 6){
+
+        alert("Card verified successfully!");
+
+        closeOtp();
+
+    }else{
+
+        alert("Please enter a valid 6-digit OTP");
+    }
+}
+
+</script>
 <!-- OTP POPUP START -->
 <div id="otp-modal" class="otp-modal">
 
