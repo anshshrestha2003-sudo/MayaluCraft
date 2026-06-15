@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -231,6 +232,71 @@
     </div>
 
 </div>
+    <!-- CARD PAYMENT -->
+
+<label class="payment-option">
+
+    <input
+        type="radio"
+        name="payment"
+        id="card"
+        value="card">
+
+    <img
+        src="images/card.png"
+        alt="Card"
+        class="payment-logo">
+
+    <span>
+        Credit / Debit Card
+    </span>
+
+</label>
+
+<div id="card-form" class="qr-card" style="display:none;">
+
+    <div class="form-group">
+        <label>Card Number</label>
+        <input
+            type="text"
+            id="card-number"
+            placeholder="1234 5678 9012 3456">
+    </div>
+
+    <div class="form-group">
+        <label>Card Holder Name</label>
+        <input
+            type="text"
+            id="card-name"
+            placeholder="John Doe">
+    </div>
+
+    <div class="form-group">
+        <label>Expiry Date</label>
+        <input
+            type="text"
+            id="expiry"
+            placeholder="MM/YY">
+    </div>
+
+    <div class="form-group">
+        <label>CVV</label>
+        <input
+            type="password"
+            id="cvv"
+            placeholder="123">
+    </div>
+
+    <button
+        type="button"
+        class="btn btn-primary"
+        onclick="showOtpPopup()">
+
+        Verify Card
+
+    </button>
+
+</div>
 <div class="form-group">
 
     <label>
@@ -391,5 +457,38 @@ updatePaymentQR();
 
 </script>
 
+<!-- OTP POPUP START -->
+<div id="otp-modal" class="otp-modal">
+
+    <div class="otp-content">
+
+        <h3>OTP Verification</h3>
+
+        <p>Enter the 6-digit OTP sent to your phone.</p>
+
+        <input
+            type="text"
+            id="otp"
+            maxlength="6"
+            placeholder="123456">
+
+        <br><br>
+
+        <button
+            class="btn btn-primary"
+            onclick="verifyOtp()">
+            Verify OTP
+        </button>
+
+        <button
+            class="btn"
+            onclick="closeOtp()">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+<!-- OTP POPUP END -->
 </body>
 </html>
